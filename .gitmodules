@@ -1,0 +1,6 @@
+[submodule "subprojects/cpplibutil"]
+	path = subprojects/cpplibutil
+	url = https://github.com/lfxgroove/cpplibutil
+[submodule "subprojects/js0n"]
+	path = subprojects/js0n
+	url = https://github.com/lfxgroove/js0n.git
