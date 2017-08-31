@@ -59,7 +59,7 @@ public:
         // Create a tiip message from a stream, making sure that
         // required fields are there.
         Message(std::istream& stream);
-        Message(std::string&& s);
+        Message(std::string s);
         
         // Serialize this message into a JSON object represented as a
         // string.

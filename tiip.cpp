@@ -23,7 +23,7 @@ Message::Message(std::istream& s) {
         fromStream(s);
 }
 
-Message::Message(std::string&& s) {
+Message::Message(std::string s) {
         std::stringstream ss{std::move(s)};
         fromStream(ss);
 }
