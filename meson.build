@@ -16,4 +16,6 @@ tiip_dep = declare_dependency(sources: sources, dependencies: [js0n_dep, util_de
 
 install_headers('tiip.h')
 
-executable('tests', test_sources + sources, dependencies: [js0n_dep, util_dep, boost_dep])
+if not meson.is_subproject()
+    executable('tests', test_sources + sources, dependencies: [js0n_dep, util_dep, boost_dep])
+endif
