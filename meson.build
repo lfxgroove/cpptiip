@@ -11,7 +11,6 @@ sources = ['tiip.cpp']
 test_sources = ['tests/tiip.cpp', 'tests/test_main.cpp']
 
 tiip_inc = include_directories('./')
-tiip_lib = library('tiip', sources, include_directories: tiip_inc, dependencies: [js0n_dep, util_dep, boost_dep])
 tiip_dep = declare_dependency(sources: sources, dependencies: [js0n_dep, util_dep, boost_dep], include_directories: tiip_inc, version: '1.0')
 
 install_headers('tiip.h')
