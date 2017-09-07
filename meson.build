@@ -1,4 +1,4 @@
-project('cpptiip', 'cpp', default_options: ['cpp_std=c++1z'])
+project('cpptiip', 'cpp', default_options: ['cpp_std=c++11'])
 boost_dep = dependency('boost', modules:  ['variant', 'uuid'])
 
 subproject('cpplibutil')
