@@ -31,9 +31,15 @@ Message::Message(std::string s) {
 void Message::fromStream(std::istream& s) {
         json::JsonStructured json{s};
 
-        std::string version = json.lookupString({"pv"});
-        if (version != pv) {
-                throw MessageParseError{util::format("Invalid Tiip message version, got `", version, "', expected `", pv ,"'")};
+        try {
+                std::string version = json.lookupString({"pv"});
+                if (version != pv) {
+                        throw MessageParseError{util::format("Invalid Tiip message version, got `", version, "', expected `", pv ,"'")};
+                }
+        } catch (json::FieldNotFoundError const& e) {
+                throw MessageParseError{util::format("Can't find `pv' field in tiip message. Json said: ", e.what())};
+        } catch (json::ParseError const& e) {
+                throw MessageParseError{util::format("Can't parse json to find `pv' field in tiip message. Json said: ", e.what())};
         }
         
         extractField(json, {"ts"}, ts);
